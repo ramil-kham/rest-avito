@@ -33,7 +33,7 @@ public class FlatController {
         return manager.updateById(id,dto);
     }
 
-    @GetMapping("/users/search")
-    public ArrayList<Flat>
+    //@GetMapping("/users/search")
+    //public ArrayList<Flat>
 
 }
