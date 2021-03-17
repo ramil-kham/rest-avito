@@ -9,11 +9,6 @@ import lombok.Data;
 public class FlatCreate {
     private int rooms;
     private double metricArea;
-    private int floor;
-    private int floorsInTheHouse;
     private int price;
     private String address;
-    private String image;
-    private String description;
-    private long created;
 }

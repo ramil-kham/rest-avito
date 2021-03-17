@@ -1,0 +1,50 @@
+###
+
+GET http://localhost:8080/flats
+
+###
+
+GET http://localhost:8080/flats/1
+
+###
+
+GET http://localhost:8080/flats/search?minPrice=2500000&maxPrice=3500000
+
+###
+
+POST http://localhost:8080/flats
+Content-Type: application/json
+
+{
+  "rooms": "1",
+  "metricArea": "37.6",
+  "price": "3_000_000",
+  "address": "Kamaleeva"
+}
+
+###
+
+POST http://localhost:8080/flats
+Content-Type: application/json
+
+{
+  "rooms": "2",
+  "metricArea": "50.7",
+  "price": "5_000_000",
+  "address": "Sakharova"
+}
+
+###
+
+PUT http://localhost:8080/flats/1
+Content-Type: application/json
+
+{
+  "price": "3_200_000",
+  "image": "https://35.img.avito.st/image/1/Us69Rray_ieL8XwqlVMnj0Dl_iEd5_w",
+  "description": "Отличная квартира"
+}
+
+###
+
+DELETE http://localhost:8080/flats/1

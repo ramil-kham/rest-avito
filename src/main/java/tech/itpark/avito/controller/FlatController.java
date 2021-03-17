@@ -18,22 +18,28 @@ public class FlatController {
         return manager.getAll();
     }
 
-    @GetMapping("/users/{id}")
-        public Flat getById(@PathVariable long id) {
+    @GetMapping("/flats/{id}")
+        public Flat getById (@PathVariable long id) {
             return manager.getById(id);
     }
 
-    @PostMapping("/users")
-    public Flat create(@RequestBody FlatCreate dto) {
+    @PostMapping("/flats")
+    public Flat create (@RequestBody FlatCreate dto) {
         return manager.create(dto);
     }
 
-    @PutMapping("/users/{id}")
-    public Flat updateById(@PathVariable long id, @RequestBody FlatUpdate dto) {
+    @PutMapping("/flats/{id}")
+    public Flat updateById (@PathVariable long id, @RequestBody FlatUpdate dto) {
         return manager.updateById(id,dto);
     }
 
-    //@GetMapping("/users/search")
-    //public ArrayList<Flat>
+    @GetMapping("/flats/search")
+    public ArrayList<Flat> searchBy (@RequestParam int minPrice, @RequestParam int maxPrice) {
+        return manager.searchBy(maxPrice, minPrice);
+    }
 
+    @DeleteMapping("/flats/{id}")
+    public void removedById (@PathVariable long id) {
+        manager.removedById(id);
+    }
 }

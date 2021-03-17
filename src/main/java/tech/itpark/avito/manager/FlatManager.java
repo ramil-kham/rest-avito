@@ -26,20 +26,19 @@ public class FlatManager {
     }
 
     public Flat create(FlatCreate dto) {
-        Flat Kamaleeva = new Flat(
+        Flat flat = new Flat(
                 nextId++,
-                1,
-                31.5,
-                4,
-                5,
+                dto.getRooms(),
+                dto.getMetricArea(),
                 3_000_000,
-                "пр-т Альберта Камалеева, д. 32Б",
+                dto.getAddress(),
                 "https://68.img.avito.st/image/1/wfT-6baybR3IXu8Q8MaH2QZKbRteSG8",
                 "Хорошая квартира",
-                OffsetDateTime.now().toEpochSecond()
+                OffsetDateTime.now().toEpochSecond(),
+                false
         );
-        flats.add(Kamaleeva);
-        return Kamaleeva;
+        flats.add(flat);
+        return flat;
     }
 
     public Flat updateById(long id, FlatUpdate dto) {
@@ -56,4 +55,23 @@ public class FlatManager {
     }
 
 
+    public ArrayList<Flat> searchBy(int minPrice, int maxPrice) {
+        ArrayList<Flat> result = new ArrayList<>();
+        for (Flat flat : flats) {
+            if (flat.getPrice() >= minPrice &&
+                    flat.getPrice() <= maxPrice) {
+                result.add(flat);
+            }
+        }
+        return result;
+    }
+
+    public void removedById(long id) {
+        for (Flat flat : flats) {
+            if (flat.getId() == id) {
+                flat.setRemoved(true);
+                return;
+            }
+        }
+    }
 }
