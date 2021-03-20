@@ -35,7 +35,7 @@ public class FlatController {
 
     @GetMapping("/flats/search")
     public ArrayList<Flat> searchBy (@RequestParam int minPrice, @RequestParam int maxPrice) {
-        return manager.searchBy(maxPrice, minPrice);
+        return manager.searchBy(minPrice, maxPrice);
     }
 
     @DeleteMapping("/flats/{id}")

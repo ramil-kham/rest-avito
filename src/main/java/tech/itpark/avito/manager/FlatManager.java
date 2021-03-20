@@ -30,7 +30,7 @@ public class FlatManager {
                 nextId++,
                 dto.getRooms(),
                 dto.getMetricArea(),
-                3_000_000,
+                dto.getPrice(),
                 dto.getAddress(),
                 "https://68.img.avito.st/image/1/wfT-6baybR3IXu8Q8MaH2QZKbRteSG8",
                 "Хорошая квартира",
@@ -40,6 +40,8 @@ public class FlatManager {
         flats.add(flat);
         return flat;
     }
+
+
 
     public Flat updateById(long id, FlatUpdate dto) {
         for (Flat flat : flats) {
